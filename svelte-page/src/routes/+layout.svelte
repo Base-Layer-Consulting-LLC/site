@@ -1,5 +1,6 @@
 <script lang="ts">
   import favicon from "$lib/assets/favicon.svg";
+
   // import Footer from "$lib/Footer.svelte";
   // import Nav from "$lib/Nav.svelte";
   import NavBar from "$lib/components/Nav/NavBar.svelte";
@@ -12,10 +13,12 @@
   <link rel="icon" href={favicon} />
 </svelte:head>
 
-<NavBar />
+<div class="min-h-screen bg-base-100 text-base-content">
+  <NavBar />
 
-<main class="p4">
-  {@render children()}
-</main>
+  <main class="p-4">
+    {@render children()}
+  </main>
+</div>
 
 <!-- <Footer /> -->

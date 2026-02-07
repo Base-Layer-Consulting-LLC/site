@@ -15,7 +15,7 @@
 
 <a
   {href}
-  class="btn btn-ghost btn-sm rounded-btn"
+  class="btn btn-outline btn-sm rounded-btn"
   class:btn-active={isActive}
   aria-current={isActive ? "page" : undefined}
 >

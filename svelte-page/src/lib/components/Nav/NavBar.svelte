@@ -10,7 +10,7 @@
   </div>
 
   <div class="flex-none gap-2">
-    <NavLinkItem href="/">Home</NavLinkItem>
+    <!-- <NavLinkItem href="/">Home</NavLinkItem> -->
     <NavLinkItem href="/about">About</NavLinkItem>
     <NavLinkItem href="/contact">Contact</NavLinkItem>
   </div>
