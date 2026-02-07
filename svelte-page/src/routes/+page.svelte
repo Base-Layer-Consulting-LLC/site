@@ -1,2 +1,3 @@
-<h1>Base Layer Consulting LLC</h1>
-<p>Technology services consulting.</p>
+<div class="container mx-auto p-4">
+  <p>Technology services consulting.</p>
+</div>

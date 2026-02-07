@@ -4,7 +4,9 @@
 
 <nav class="navbar bg-base-100 shadow-md px-4">
   <div class="flex-1">
-    <a class="btn btn-ghost normal-case text-xl" href="/">MySite</a>
+    <a class="btn btn-ghost normal-case text-xl" href="/"
+      >Base Layer Consulting LLC</a
+    >
   </div>
 
   <div class="flex-none gap-2">
