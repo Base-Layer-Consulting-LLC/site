@@ -1,11 +1,13 @@
 <script lang="ts">
   import { page } from "$app/state"; // reactive store
-  let { href } = $props<{ href: string }>();
+  let { href, children } = $props<{
+    href: string;
+    children: () => unknown;
+  }>();
 
-  let isActive = false;
+  let isActive = $state(false);
 
   $effect(() => {
-    // highlight if exact path or nested route
     isActive =
       page.url.pathname === href || page.url.pathname.startsWith(href + "/");
   });
@@ -17,5 +19,5 @@
   class:btn-active={isActive}
   aria-current={isActive ? "page" : undefined}
 >
-  <slot />
+  {@render children()}
 </a>
