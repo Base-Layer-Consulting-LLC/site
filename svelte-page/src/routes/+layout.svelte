@@ -14,7 +14,7 @@
 </svelte:head>
 
 <div class="min-h-screen bg-base-100 text-base-content flex flex-col">
-  <NavBar />
+  <!-- <NavBar /> -->
 
   <main class="container mx-auto p-4 flex-1">
     {@render children()}
