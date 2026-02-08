@@ -6,7 +6,7 @@ tasks:
     desc: Upgrade all npm packages to latest
     dir: svelte-page
     cmds:
-      - npx npm-check-updates -u
+      - npx --yes npm-check-updates -u
       - npm install
 
   npm:update:
