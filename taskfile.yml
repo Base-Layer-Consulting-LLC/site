@@ -1,0 +1,16 @@
+---
+version: "3"
+
+includes:
+  scripts: .tasks/scripts.yml
+
+tasks:
+  default:
+    desc: Default command, list tasks
+    cmds:
+      - task -l
+
+  docker:build:prod:
+    desc: Build Production Docker image
+    cmds:
+      - task: scripts:build:docker:prod
