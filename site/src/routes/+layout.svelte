@@ -1,5 +1,5 @@
 <script lang="ts">
-  import favicon from "$lib/assets/favicon.svg";
+  import favicon from "$lib/assets/favicon.ico";
 
   // import Footer from "$lib/Footer.svelte";
   // import Nav from "$lib/Nav.svelte";
@@ -11,6 +11,7 @@
 
 <svelte:head>
   <link rel="icon" href={favicon} />
+  <title>Base Layer LLC</title>
 </svelte:head>
 
 <div class="min-h-screen bg-base-100 text-base-content flex flex-col">

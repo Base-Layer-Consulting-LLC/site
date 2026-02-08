@@ -1,0 +1,22 @@
+---
+version: "3"
+
+tasks:
+  npm:upgrade:
+    desc: Upgrade all npm packages to latest
+    dir: site
+    cmds:
+      - npx --yes npm-check-updates -u
+      - npm install
+
+  npm:update:
+    desc: Safe semver npm updates
+    dir: site
+    cmds:
+      - npm update
+
+  npm:serve:dev:
+    desc: Start dev server
+    dir: site
+    cmds:
+      - npm run dev

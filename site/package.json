@@ -1,5 +1,5 @@
 {
-	"name": "svelte-page",
+	"name": "site",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
@@ -21,7 +21,7 @@
 		"autoprefixer": "^10.4.24",
 		"daisyui": "^5.5.18",
 		"postcss": "^8.5.6",
-		"svelte": "^5.49.2",
+		"svelte": "^5.50.0",
 		"svelte-check": "^4.3.6",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
@@ -30,5 +30,8 @@
 	},
 	"dependencies": {
 		"lucide-svelte": "^0.563.0"
+	},
+	"overrides": {
+		"cookie": "0.7.0"
 	}
 }

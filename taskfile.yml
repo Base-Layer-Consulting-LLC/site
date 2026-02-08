@@ -1,0 +1,98 @@
+---
+version: "3"
+
+includes:
+  scripts: .tasks/scripts.yml
+  _node: .tasks/node.yml
+  _docker: .tasks/docker.yml
+
+vars:
+  CONTAINER_NAME: base-layer-site
+  HOST_PORT: 80
+  IMAGE_NAME: base-layer
+  DOCKERFILE: .containers/prod/Dockerfile
+  CONTEXT_PATH: ./site
+
+tasks:
+  default:
+    desc: Default command, list tasks
+    cmds:
+      - task -l
+
+  docker:build:prod:
+    desc: Build Production Docker image
+    cmds:
+      - task: _docker:build
+
+  docker:build:dev:
+    desc: Build dev Docker image
+    cmds:
+      - task: _docker:build:dev
+
+  docker:run:prod:
+    desc: Start Production container. Override vars by passing them at the end, i.e. task docker:run:prod HOST_PORT=3000
+    cmds:
+      - task: _docker:run
+
+  docker:run:dev:
+    desc: Start dev container. Override vars by passing them at the end, i.e. task docker:run:dev HOST_PORT=3000
+    cmds:
+      - task: _docker:run:dev
+
+  docker:stop:
+    desc: Stop Production container.
+    cmds:
+      - task: _docker:stop
+
+  docker:stop:dev:
+    desc: Stop dev container.
+    cmds:
+      - task: _docker:stop:dev
+
+  docker:restart:
+    desc: Restart Production container
+    cmds:
+      - task: _docker:restart
+
+  docker:restart:dev:
+    desc: Restart dev container
+    cmds:
+      - task: _docker:restart:dev
+
+  docker:logs:
+    desc: "Stream production container logs"
+    cmds:
+      - task: _docker:logs
+
+  docker:logs:dev:
+    desc: "Stream dev container logs"
+    cmds:
+      - task: _docker:logs:dev
+
+  docker:clean:
+    desc: "Cleanup Production image & files"
+    cmds:
+      - task: _docker:clean
+
+  docker:clean:dev:
+    desc: "Cleanup dev image & files"
+    cmds:
+      - task: _docker:clean:dev
+
+  npm:upgrade:
+    desc: Upgrade ALL packages to latest versions (no prompts)
+    dir: site
+    cmds:
+      - task: _node:npm:upgrade
+
+  npm:update:
+    desc: Safe semver update of packages.json
+    dir: site
+    cmds:
+      - task: _node:npm:update
+
+  serve:dev:
+    desc: Start dev server
+    dir: site
+    cmds:
+      - task: _node:npm:serve:dev

@@ -1,0 +1,8 @@
+---
+version: "3"
+
+tasks:
+  build:docker:prod:
+    desc: "Build the production Docker image"
+    cmds:
+      - ./scripts/build/build-prod-container.sh
