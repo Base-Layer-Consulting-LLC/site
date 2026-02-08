@@ -1,6 +1,4 @@
 <script lang="ts">
-  import ContactCard from "$lib/components/ContactCard/ContactCard.svelte";
-
   export let title: string;
   export let subtitle: string | null = null;
 
@@ -9,14 +7,14 @@
 
   // layout / sizing
   export let heightClass: string = "h-screen";
-  export let titleSizeClass: string = "text-4xl md:text-5xl"; // <-- add this
-  export let subtitleSizeClass: string = "text-lg md:text-xl"; // <-- add this
+  export let titleSizeClass: string = "text-4xl md:text-5xl";
+  export let subtitleSizeClass: string = "text-lg md:text-xl";
 
   // optional button
   export let buttonText: string | null = null;
   export let buttonHref: string = "#";
 
-  // Contact card props
+  // Contact info
   export let email: string = "";
   export let useFor: string | null = null;
   export let responseTime: string | null = null;
@@ -47,7 +45,7 @@
   {/if}
 
   <!-- content -->
-  <div class="relative z-10 w-full space-y-8 flex flex-col items-center">
+  <div class="relative z-10 w-full space-y-6 flex flex-col items-center">
     <!-- Title -->
     <h1
       class={`font-bold leading-tight text-center text-white ${titleSizeClass}`}
@@ -80,9 +78,30 @@
       </a>
     {/if}
 
-    <!-- Contact card -->
-    <div class="w-full sm:w-96 mt-8">
-      <ContactCard {email} {useFor} {responseTime} />
-    </div>
+    <!-- Contact text -->
+    {#if email}
+      <div
+        class="mt-6 p-4 rounded-lg bg-white/60 text-black text-center max-w-sm w-full"
+      >
+        <p class="font-mono">
+          <strong>Email:</strong>
+          <a href={`mailto:${email}`} class="hover:underline">{email}</a>
+        </p>
+
+        {#if useFor}
+          <p class="mt-1 text-sm text-black/70">
+            <strong>Use for:</strong>
+            {useFor}
+          </p>
+        {/if}
+
+        {#if responseTime}
+          <p class="mt-1 text-sm text-black/70">
+            <strong>Response time:</strong>
+            {responseTime}
+          </p>
+        {/if}
+      </div>
+    {/if}
   </div>
 </div>
