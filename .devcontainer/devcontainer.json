@@ -1,8 +1,8 @@
 {
-    "name": "svelte-page-dev",
+    "name": "bl-repo-dev",
     "build": {
-        "dockerfile": ".devcontainer/dev/Dockerfile",
-        "context": "."
+        "dockerfile": "dev/Dockerfile",
+        "context": ".."
     },
     "workspaceFolder": "/workspace",
     "mounts": [
