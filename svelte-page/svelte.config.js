@@ -1,9 +1,11 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { defineConfig } from 'vite';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
+
 	kit: {
 		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
 		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
@@ -18,4 +20,17 @@ const config = {
 	}
 };
 
-export default config;
+export default defineConfig({
+	...config,
+	build: {
+		minify: 'terser',
+		terserOptions: {
+			format: {
+				comments: false // remove all comments
+			},
+			compress: {
+				drop_console: true // remove console logs
+			}
+		}
+	}
+});
