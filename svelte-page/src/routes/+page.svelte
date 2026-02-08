@@ -1,6 +1,10 @@
 <script lang="ts">
   import StackedHero from "$lib/components/Hero/StackedHero.svelte";
-  import { PUBLIC_EMAIL, PUBLIC_RESPONSE_TIME } from "$env/static/public";
+  import {
+    PUBLIC_EMAIL,
+    PUBLIC_RESPONSE_TIME,
+    PUBLIC_COMPANY,
+  } from "$env/static/public";
 
   type ConsultingDomain = {
     title: string;
@@ -29,7 +33,7 @@
 <div class="pt-16">
   <!-- Hero -->
   <StackedHero
-    title="Base Layer Consulting LLC"
+    title={PUBLIC_COMPANY}
     subtitle="Core infrastructure and DevOps consulting for your business."
     backgroundImage="/img/hero-network-points.jpg"
     overlayOpacity={0.28}
