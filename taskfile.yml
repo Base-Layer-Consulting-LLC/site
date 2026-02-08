@@ -3,6 +3,7 @@ version: "3"
 
 includes:
   scripts: .tasks/scripts.yml
+  _node: .tasks/node.yml
 
 tasks:
   default:
@@ -14,3 +15,15 @@ tasks:
     desc: Build Production Docker image
     cmds:
       - task: scripts:build:docker:prod
+
+  npm:upgrade:
+    desc: Upgrade ALL packages to latest versions (no prompts)
+    dir: svelte-page
+    cmds:
+      - task: _node:npm:upgrade
+
+  npm:update:
+    desc: Safe semver update of packages.json
+    dir: svelte-page
+    cmds:
+      - task: _node:npm:update

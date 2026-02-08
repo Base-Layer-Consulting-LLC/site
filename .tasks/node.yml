@@ -1,0 +1,16 @@
+---
+version: "3"
+
+tasks:
+  npm:upgrade:
+    desc: Upgrade all npm packages to latest
+    dir: svelte-page
+    cmds:
+      - npx npm-check-updates -u
+      - npm install
+
+  npm:update:
+    desc: Safe semver npm updates
+    dir: svelte-page
+    cmds:
+      - npm update
