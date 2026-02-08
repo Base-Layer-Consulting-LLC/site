@@ -2,7 +2,10 @@
     "name": "bl-repo-dev",
     "build": {
         "dockerfile": "dev/Dockerfile",
-        "context": ".."
+        "context": "..",
+        "args": {
+            "CONTAINER_IMG_TAG": "24.04"
+        }
     },
     "workspaceFolder": "/workspace",
     "mounts": [
