@@ -39,7 +39,7 @@
   <!-- overlay -->
   {#if overlayOpacity > 0}
     <div
-      class="absolute inset-0 bg-black"
+      class="absolute inset-0 bg-black glass"
       style="opacity: {overlayOpacity}"
     ></div>
   {/if}
