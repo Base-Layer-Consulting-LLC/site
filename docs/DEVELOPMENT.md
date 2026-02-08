@@ -31,8 +31,27 @@ You will need to do some setup on the first clone to make changes to the website
 
 ## Taskfile tasks
 
-```txt
-...
+This project includes [Taskfile tasks](https://taskfile.dev) for convenience commands. The [`.tasks/` directory](../.tasks/) contains YAML files defining automations, which the [`taskfile.yml` at the repository root](../taskfile.yml) "composes" those tasks into CLI commands.
+
+List all available tasks with `task -l`. Run the tasks with `task <task-name>`.
+
+For example, to build and run the development Docker image:
+
+```shell
+task docker:build:dev
+task docker:run:dev
+```
+
+You can check the dev container logs with:
+
+```shell
+task docker:logs:dev
+```
+
+And stop the dev container with:
+
+```shell
+task docker:stop:dev
 ```
 
 ## Svelte site
