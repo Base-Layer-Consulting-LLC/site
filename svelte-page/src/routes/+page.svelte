@@ -2,10 +2,13 @@
   import Hero from "$lib/components/Hero/Hero.svelte";
 </script>
 
-<Hero
-  title="Custom Image"
-  subtitle="This hero uses a different image."
-  backgroundImage="/img/network-points-color.jpg"
-  buttonText={null}
-  heightClass="h-[50vh]"
-/>
+<div class="py-8">
+  <Hero
+    title="Base Layer Consulting LLC"
+    subtitle="Core infrastructure and DevOps consulting for your business."
+    backgroundImage="/img/hero-network-points.jpg"
+    overlayOpacity={0.2}
+    buttonText={null}
+    heightClass="h-[78vh]"
+  />
+</div>
