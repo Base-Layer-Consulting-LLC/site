@@ -153,6 +153,9 @@ You can set these in your environment, or use [a `.env` file in the `site/` dir]
 
 ## Docker
 
-```txt
-...
-```
+The [`.containers/` directory](../.containers/) includes a number of Docker files for building and running the site.
+
+- [`dev/`](../.containers/dev): Builds the site and serves it in development mode, enabling hot reloading for local development.
+- [`prod/`](../.containers/prod): Builds the site and exports a final layer with [Caddy](https://hub.docker.com/_/caddy) to serve the statically generated site.
+  - The Caddy container just serves the static content on container port `80`.
+  - SSL should be handled by an external service like [Cloudflare](https://cloudflare.com) or [Azure DNS](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-bindings).
