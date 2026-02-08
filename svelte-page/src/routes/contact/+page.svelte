@@ -1,19 +1,12 @@
 <script lang="ts">
-  import { PUBLIC_EMAIL, PUBLIC_RESPONSE_TIME } from "$env/static/public";
+  import ContactCard from "$lib/components/ContactCard/ContactCard.svelte";
+  import { PUBLIC_RESPONSE_TIME, PUBLIC_EMAIL } from "$env/static/public";
 </script>
 
-<h1>Contact</h1>
-
-<p>
-  <strong>Email:</strong>
-  <a href="mailto:{PUBLIC_EMAIL}">{PUBLIC_EMAIL}</a>
-</p>
-
-<h2>Best for:</h2>
-<ul>
-  <li>Information requests</li>
-  <li>Project engagement</li>
-  <li>Technical consulting</li>
-</ul>
-
-<p><strong>Response:</strong> {PUBLIC_RESPONSE_TIME}</p>
+<div class="container py-50">
+  <ContactCard
+    email={PUBLIC_EMAIL}
+    useFor="General inquiries"
+    responseTime={PUBLIC_RESPONSE_TIME}
+  />
+</div>
