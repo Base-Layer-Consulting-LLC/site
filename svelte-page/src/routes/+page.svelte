@@ -8,7 +8,8 @@
     subtitle="Core infrastructure and DevOps consulting for your business."
     backgroundImage="/img/hero-network-points.jpg"
     overlayOpacity={0.2}
-    buttonText={null}
+    buttonText="Get in touch"
+    buttonHref="/contact"
     heightClass="h-[50vh]"
     titleSizeClass="text-4xl md:text-6xl"
     subtitleSizeClass="text-xl md:text-2xl"

@@ -50,7 +50,19 @@
     {/if}
 
     {#if buttonText}
-      <a href={buttonHref} class="inline-block mt-6 btn btn-primary">
+      <a
+        href={buttonHref}
+        class="
+      inline-flex items-center justify-center
+      mt-8
+      px-8 py-3
+      text-base font-semibold
+      rounded-lg
+      bg-primary text-primary-content
+      hover:bg-primary-focus
+      transition-colors
+    "
+      >
         {buttonText}
       </a>
     {/if}
