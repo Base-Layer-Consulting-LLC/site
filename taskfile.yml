@@ -27,3 +27,9 @@ tasks:
     dir: svelte-page
     cmds:
       - task: _node:npm:update
+
+  serve:dev:
+    desc: Start dev server
+    dir: svelte-page
+    cmds:
+      - task: _node:npm:serve:dev

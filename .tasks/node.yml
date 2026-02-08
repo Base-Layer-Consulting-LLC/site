@@ -14,3 +14,9 @@ tasks:
     dir: svelte-page
     cmds:
       - npm update
+
+  npm:serve:dev:
+    desc: Start dev server
+    dir: svelte-page
+    cmds:
+      - npm run dev
