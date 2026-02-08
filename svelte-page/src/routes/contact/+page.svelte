@@ -3,8 +3,10 @@
   import { PUBLIC_RESPONSE_TIME, PUBLIC_EMAIL } from "$env/static/public";
 </script>
 
-<ContactCard
-  email={PUBLIC_EMAIL}
-  useFor="General inquiries"
-  responseTime={PUBLIC_RESPONSE_TIME}
-/>
+<div class="container py-50">
+  <ContactCard
+    email={PUBLIC_EMAIL}
+    useFor="General inquiries"
+    responseTime={PUBLIC_RESPONSE_TIME}
+  />
+</div>
