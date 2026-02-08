@@ -49,6 +49,16 @@ tasks:
     cmds:
       - task: _docker:stop:dev
 
+  docker:restart:
+    desc: Restart Production container
+    cmds:
+      - task: _docker:restart
+
+  docker:restart:dev:
+    desc: Restart dev container
+    cmds:
+      - task: _docker:restart:dev
+
   docker:logs:
     desc: "Stream production container logs"
     cmds:
