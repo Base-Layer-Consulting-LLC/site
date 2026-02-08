@@ -4,22 +4,20 @@
   export let buttonText: string | null = null;
   export let buttonHref: string = "#";
   export let backgroundImage: string | null = null;
-  export let height: string = "100vh";
+  export let heightClass: string = "h-screen"; // Tailwind class for height
   export let overlayOpacity: number = 0.4; // optional overlay
 </script>
 
 <div
-  class="hero relative w-full"
-  style="height: {height}; 
-         background-color: {backgroundImage ? 'transparent' : 'black'};
-         {backgroundImage
-    ? `background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`
-    : ''}"
+  class={`hero relative w-full ${heightClass}`}
+  style={backgroundImage
+    ? `background-image: url('${backgroundImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`
+    : "background-color: black;"}
 >
   {#if backgroundImage && overlayOpacity > 0}
     <div
       class="absolute inset-0"
-      style="background-color: rgba(0,0,0,{overlayOpacity})"
+      style="background-color: rgba(0,0,0,{overlayOpacity});"
     ></div>
   {/if}
 

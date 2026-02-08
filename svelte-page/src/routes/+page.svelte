@@ -5,6 +5,7 @@
 <Hero
   title="Custom Image"
   subtitle="This hero uses a different image."
-  backgroundImage="/img/network-points-blue-bg.jpg"
+  backgroundImage="/img/network-points-color.jpg"
   buttonText={null}
+  heightClass="h-[50vh]"
 />
