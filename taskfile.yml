@@ -11,7 +11,7 @@ vars:
   HOST_PORT: 80
   IMAGE_NAME: base-layer
   DOCKERFILE: .containers/prod/Dockerfile
-  CONTEXT_PATH: ./svelte-page
+  CONTEXT_PATH: ./site
 
 tasks:
   default:
@@ -71,18 +71,18 @@ tasks:
 
   npm:upgrade:
     desc: Upgrade ALL packages to latest versions (no prompts)
-    dir: svelte-page
+    dir: site
     cmds:
       - task: _node:npm:upgrade
 
   npm:update:
     desc: Safe semver update of packages.json
-    dir: svelte-page
+    dir: site
     cmds:
       - task: _node:npm:update
 
   serve:dev:
     desc: Start dev server
-    dir: svelte-page
+    dir: site
     cmds:
       - task: _node:npm:serve:dev

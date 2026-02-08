@@ -4,19 +4,19 @@ version: "3"
 tasks:
   npm:upgrade:
     desc: Upgrade all npm packages to latest
-    dir: svelte-page
+    dir: site
     cmds:
       - npx --yes npm-check-updates -u
       - npm install
 
   npm:update:
     desc: Safe semver npm updates
-    dir: svelte-page
+    dir: site
     cmds:
       - npm update
 
   npm:serve:dev:
     desc: Start dev server
-    dir: svelte-page
+    dir: site
     cmds:
       - npm run dev
