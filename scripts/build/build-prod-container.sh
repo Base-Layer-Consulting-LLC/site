@@ -10,7 +10,7 @@ THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT=$(realpath -m "$THIS_DIR/../..")
 DOCKERFILE="${REPO_ROOT}/.containers/prod/Dockerfile"
 IMG_TAG="base-layer"
-CONTEXT_PATH="./svelte-page"
+CONTEXT_PATH="./site"
 
 cmd=(docker build -f "${DOCKERFILE}" -t "${IMG_TAG}" "${CONTEXT_PATH}")
 
