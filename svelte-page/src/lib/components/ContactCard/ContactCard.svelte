@@ -11,7 +11,7 @@
   class="max-w-lg mx-auto shadow-lg rounded-xl overflow-hidden bg-white text-black"
 >
   <!-- Header -->
-  <div class="px-6 py-4 border-b border-gray-200">
+  <div class="px-6 py-4 border-b">
     <h3 class="text-lg text-center font-semibold">{title}</h3>
   </div>
 
