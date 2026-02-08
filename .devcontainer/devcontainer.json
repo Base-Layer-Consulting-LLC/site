@@ -9,7 +9,9 @@
     },
     "workspaceFolder": "/workspace",
     "mounts": [
-        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/.ssh,type=bind",
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/.gitconfig,type=bind"
     ],
     "customizations": {
         "vscode": {
