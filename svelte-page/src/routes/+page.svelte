@@ -8,24 +8,37 @@
 
   type ConsultingDomain = {
     title: string;
-    description: string;
+    bullets: string[];
   };
 
   const domains: ConsultingDomain[] = [
     {
-      title: "Infrastructure",
-      description:
-        "Planning, deploying, and troubleshooting robust infrastructure for businesses of all sizes. From cloud architecture to on-prem systems, I ensure reliability and scalability.",
+      title: "Infrastructure & Cloud",
+      bullets: [
+        "Cloud and on-prem infrastructure design",
+        "High availability and reliability planning",
+        "Capacity planning and performance tuning",
+        "Incident response and root-cause analysis",
+        "Cost analysis and management",
+      ],
     },
     {
       title: "DevOps & Automation",
-      description:
-        "Implementing CI/CD pipelines, automating workflows, and improving operational efficiency. Streamlining business and development processes for faster, safer deployments.",
+      bullets: [
+        "CI/CD pipeline design and implementation",
+        "Deployment automation and release workflows",
+        "Operational tooling and developer experience",
+        "Reducing toil through automation",
+      ],
     },
     {
       title: "Architecture & IaC",
-      description:
-        "Designing system architectures and defining Infrastructure as Code practices. Building repeatable, versioned, and auditable deployments that scale with your business.",
+      bullets: [
+        "System architecture and platform design",
+        "Infrastructure as Code (Terraform, Ansible, etc.)",
+        "Versioned, auditable environments",
+        "Scalable, repeatable deployment patterns",
+      ],
     },
   ];
 </script>
@@ -73,15 +86,21 @@
           class="p-6 bg-base-100 rounded-lg shadow hover:shadow-md transition"
         >
           <h3
-            class="text-lg sm:text-xl md:text-xl lg:text-2xl font-semibold mb-3"
+            class="text-lg sm:text-xl md:text-xl lg:text-2xl font-semibold mb-4 text-center"
           >
             {domain.title}
           </h3>
-          <p
-            class="text-base-content/80 text-sm sm:text-base md:text-base leading-relaxed"
-          >
-            {domain.description}
-          </p>
+
+          <hr class="pb-2" />
+
+          <ul class="space-y-2 text-base-content/80">
+            {#each domain.bullets as bullet}
+              <li class="flex gap-2 text-sm sm:text-base leading-relaxed">
+                <span class="opacity-60">—</span>
+                <span>{bullet}</span>
+              </li>
+            {/each}
+          </ul>
         </div>
       {/each}
     </div>
