@@ -7,6 +7,7 @@
 - [Svelte site](#svelte-site)
   - [Theme](#theme)
   - [Components](#components)
+- [Environment variables](#environment-variables)
 - [Docker](#docker)
 
 ## Initial clone setup
@@ -139,6 +140,16 @@ Some components accept data properties, like the [`StackedHero`](../site/src/lib
     responseTime={PUBLIC_RESPONSE_TIME}
 />
 ```
+
+## Environment variables
+
+The site requires to be set when building the site:
+
+- `PUBLIC_EMAIL="example@domain.com"`: Primary email address to use i.e. on the contact card.
+- `PUBLIC_COMPANY="Company Name"`: The full name of the company. Use on the hero image, primarily.
+- `PUBLIC_RESPONSE_TIME="X-X [business days | hours | etc]"`: String value used on the contact card, indicating how long a sender should expect to wait for a response.
+
+You can set these in your environment, or use [a `.env` file in the `site/` dir](../site/.env.example)
 
 ## Docker
 
