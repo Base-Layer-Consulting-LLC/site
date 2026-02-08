@@ -11,6 +11,7 @@
 
 <svelte:head>
   <link rel="icon" href={favicon} />
+  <title>Base Layer LLC</title>
 </svelte:head>
 
 <div class="min-h-screen bg-base-100 text-base-content flex flex-col">
