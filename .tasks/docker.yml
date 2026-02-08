@@ -14,10 +14,24 @@ tasks:
     cmds:
       - docker build -f {{.DOCKERFILE}} -t {{.IMAGE_NAME}} {{.CONTEXT_PATH}}
 
+  build:dev:
+    desc: Build dev Docker image
+    cmds:
+      - |
+        docker build -f .containers/dev/Dockerfile -t {{.IMAGE_NAME}}-dev {{.CONTEXT_PATH}}
+
   run:
     desc: Run container
     cmds:
       - docker run -d -p {{.HOST_PORT}}:80 --name {{.CONTAINER_NAME}} {{.IMAGE_NAME}}
+
+  run:dev:
+    desc: Run dev container (hot reload)
+    vars:
+      IMAGE_NAME: "{{.IMAGE_NAME}}-dev"
+      HOST_PORT: 3000
+    cmds:
+      - docker run -d -p {{.HOST_PORT}}:3000 -v $(pwd)/svelte-page:/app --name {{.CONTAINER_NAME}}-dev {{.IMAGE_NAME}}
 
   stop:
     desc: Stop and remove container
@@ -25,9 +39,20 @@ tasks:
       - docker stop {{.CONTAINER_NAME}} || true
       - docker rm {{.CONTAINER_NAME}} || true
 
+  stop:dev:
+    desc: Stop dev container
+    cmds:
+      - docker stop {{.CONTAINER_NAME}}-dev || true
+      - docker rm {{.CONTAINER_NAME}}-dev || true
+
   restart:
     desc: Stop + start container
     deps: [stop, build:prod, run]
+    run: once
+
+  restart:dev:
+    desc: Stop + start container
+    deps: [stop:dev, build:dev, run:dev]
     run: once
 
   logs:
@@ -35,9 +60,21 @@ tasks:
     cmds:
       - docker logs -f {{.CONTAINER_NAME}}
 
+  logs:dev:
+    desc: Show container logs
+    cmds:
+      - docker logs -f {{.CONTAINER_NAME}}-dev
+
   clean:
     desc: Remove container + image
     cmds:
       - docker stop {{.CONTAINER_NAME}} || true
       - docker rm {{.CONTAINER_NAME}} || true
       - docker rmi {{.IMAGE_NAME}} || true
+
+  clean:dev:
+    desc: Remove container + image
+    cmds:
+      - docker stop {{.CONTAINER_NAME}}-dev || true
+      - docker rm {{.CONTAINER_NAME}}-dev || true
+      - docker rmi {{.IMAGE_NAME}}-dev || true

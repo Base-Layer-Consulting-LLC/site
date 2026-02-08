@@ -4,7 +4,7 @@ version: "3"
 includes:
   scripts: .tasks/scripts.yml
   _node: .tasks/node.yml
-  docker: .tasks/docker.yml
+  _docker: .tasks/docker.yml
 
 vars:
   CONTAINER_NAME: base-layer-site
@@ -22,12 +22,52 @@ tasks:
   docker:build:prod:
     desc: Build Production Docker image
     cmds:
-      - task: docker:build
+      - task: _docker:build
+
+  docker:build:dev:
+    desc: Build dev Docker image
+    cmds:
+      - task: _docker:build:dev
 
   docker:run:prod:
     desc: Start Production container. Override vars by passing them at the end, i.e. task docker:run:prod HOST_PORT=3000
     cmds:
-      - task: docker:run
+      - task: _docker:run
+
+  docker:run:dev:
+    desc: Start dev container. Override vars by passing them at the end, i.e. task docker:run:dev HOST_PORT=3000
+    cmds:
+      - task: _docker:run:dev
+
+  docker:stop:
+    desc: Stop Production container.
+    cmds:
+      - task: _docker:stop
+
+  docker:stop:dev:
+    desc: Stop dev container.
+    cmds:
+      - task: _docker:stop:dev
+
+  docker:logs:
+    desc: "Stream production container logs"
+    cmds:
+      - task: _docker:logs
+
+  docker:logs:dev:
+    desc: "Stream dev container logs"
+    cmds:
+      - task: _docker:logs:dev
+
+  docker:clean:
+    desc: "Cleanup Production image & files"
+    cmds:
+      - task: _docker:clean
+
+  docker:clean:dev:
+    desc: "Cleanup dev image & files"
+    cmds:
+      - task: _docker:clean:dev
 
   npm:upgrade:
     desc: Upgrade ALL packages to latest versions (no prompts)
