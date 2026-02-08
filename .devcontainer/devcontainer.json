@@ -1,8 +1,8 @@
 {
     "name": "svelte-page-dev",
     "build": {
-        "dockerfile": "../.devcontainer/dev/Dockerfile",
-        "context": ".."
+        "dockerfile": ".devcontainer/dev/Dockerfile",
+        "context": "."
     },
     "workspaceFolder": "/workspace",
     "mounts": [
