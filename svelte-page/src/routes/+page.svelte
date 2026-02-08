@@ -13,12 +13,13 @@
 
   const domains: ConsultingDomain[] = [
     {
-      title: "Infrastructure",
+      title: "Infrastructure & Cloud",
       bullets: [
         "Cloud and on-prem infrastructure design",
         "High availability and reliability planning",
         "Capacity planning and performance tuning",
         "Incident response and root-cause analysis",
+        "Cost analysis and management",
       ],
     },
     {
@@ -34,7 +35,7 @@
       title: "Architecture & IaC",
       bullets: [
         "System architecture and platform design",
-        "Infrastructure as Code (Terraform, etc.)",
+        "Infrastructure as Code (Terraform, Ansible, etc.)",
         "Versioned, auditable environments",
         "Scalable, repeatable deployment patterns",
       ],
