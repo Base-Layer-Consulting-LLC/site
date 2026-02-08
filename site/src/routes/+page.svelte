@@ -43,7 +43,7 @@
   ];
 </script>
 
-<div class="">
+<div class="py-6">
   <!-- Hero -->
   <StackedHero
     title={PUBLIC_COMPANY}
