@@ -1,21 +1,27 @@
-FROM ubuntu:24.04
+ARG CONTAINER_IMG_TAG=24.04
+FROM ubuntu:${CONTAINER_IMG_TAG}
 
-# Install basic utilities
+ENV DEBIAN_FRONTEND=noninteractive
+ENV MISE_INSTALL_PATH=/usr/local/bin
+ENV PATH="/root/.local/share/mise/shims:${PATH}"
+
+## Base utilities
 RUN apt-get update && \
-    apt-get install -y curl git unzip wget build-essential sudo && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y \
+        curl git unzip wget build-essential sudo ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install mise
+## Install mise
 RUN curl -fsSL https://mise-tools.jdx.dev/install.sh | bash
 
-# Set workdir
+## Ensure mise is activated for all shells
+RUN echo 'eval "$(mise activate bash)"' >> /etc/bash.bashrc
+
 WORKDIR /workspace
 
-# Copy mise.toml so we can install tools
+## Tool install layer
 COPY mise.toml /workspace/mise.toml
 RUN mise install
 
-# Expose dev server port
 EXPOSE 5173
-
 CMD ["bash"]

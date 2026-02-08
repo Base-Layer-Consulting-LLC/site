@@ -1,20 +1,23 @@
 {
     "name": "svelte-page-dev",
     "build": {
-        "dockerfile": "../.containers/dev/Dockerfile",
+        "dockerfile": "../.devcontainer/dev/Dockerfile",
         "context": ".."
     },
     "workspaceFolder": "/workspace",
     "mounts": [
         "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
     ],
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
-    },
-    "extensions": [
-        "svelte.svelte-vscode",
-        "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint"
-    ],
-    "postCreateCommand": "mise install"
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "svelte.svelte-vscode",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    }
 }
