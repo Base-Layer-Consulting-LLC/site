@@ -6,7 +6,7 @@ vars:
   HOST_PORT: 80
   IMAGE_NAME: base-layer
   DOCKERFILE: .containers/prod/Dockerfile
-  CONTEXT_PATH: ./svelte-page
+  CONTEXT_PATH: ./site
 
 tasks:
   build:
@@ -31,7 +31,7 @@ tasks:
       IMAGE_NAME: "{{.IMAGE_NAME}}-dev"
       HOST_PORT: 3000
     cmds:
-      - docker run -d -p {{.HOST_PORT}}:3000 -v $(pwd)/svelte-page:/app --name {{.CONTAINER_NAME}}-dev {{.IMAGE_NAME}}
+      - docker run -d -p {{.HOST_PORT}}:3000 -v $(pwd)/site:/app --name {{.CONTAINER_NAME}}-dev {{.IMAGE_NAME}}
 
   stop:
     desc: Stop and remove container
