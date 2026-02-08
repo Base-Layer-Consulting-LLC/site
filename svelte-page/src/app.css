@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  /*
+    Use 'all' to load all themes. In production, you should pick 1
+    theme and set it here, and make sure app.html's data-theme property matches.
+  
+    All themes: https://daisyui.com/docs/themes/#list-of-themes
+  */
+  themes: all;
+}
+
+/* Base typography */
+@layer base {
+  body {
+    @apply font-sans;
+  }
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  p {
+    @apply text-base;
+  }
+}
