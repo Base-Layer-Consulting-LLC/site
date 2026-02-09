@@ -1,28 +1,29 @@
 {
-    "name": "baselayer-devcontainer",
-    "build": {
-        "dockerfile": "dev/Dockerfile",
-        "context": "..",
-        "args": {
-            "CONTAINER_IMG_TAG": "24.04"
-        }
-    },
-    "workspaceFolder": "/workspace",
-    "mounts": [
-        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind",
-        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind"
-    ],
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "terminal.integrated.shell.linux": "/bin/bash"
-            },
-            "extensions": [
-                "svelte.svelte-vscode",
-                "esbenp.prettier-vscode",
-                "dbaeumer.vscode-eslint"
-            ]
-        }
+  "name": "mise",
+  "image": "debian:trixie",
+  "features": {
+    "ghcr.io/devcontainers-extra/features/mise:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hverlin.mise-vscode"
+      ]
     }
+  },
+  "mounts": [
+    {
+      "source": "mise-data-volume",
+      "target": "/mnt/mise-data",
+      "type": "volume"
+    }
+  ],
+  "containerEnv": {
+    "MISE_DATA_DIR": "/mnt/mise-data"
+  },
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/mnt/mise-data/shims"
+  },
+  "postCreateCommand": ".devcontainer/scripts/postCreate.sh",
+  "postStartCommand": ".devcontainer/scripts/postStart.sh"
 }
