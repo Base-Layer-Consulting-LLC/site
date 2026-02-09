@@ -32,7 +32,9 @@ jobs:
         run: npm run build
         env:
           BASE_URL: ${{ vars.BASE_URL }}
-          SITE_VERSION: ${{ vars.SITE_VERSION }}
+          PUBLIC_COMPANY: ${{ vars.PUBLIC_COMPANY }}
+          PUBLIC_EMAIL: ${{ vars.PUBLIC_EMAIL }}
+          PUBLIC_RESPONSE_TIME: ${{ vars.PUBLIC_RESPONSE_TIME }}
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
