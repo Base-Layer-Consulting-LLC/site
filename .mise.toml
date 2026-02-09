@@ -1,5 +1,4 @@
 [tools]
-hugo-extended = "0.154.3"
+node = "24.13.0"
 direnv = "latest"
 "aqua:go-task/task" = "latest"
-node = "24.13.0"
