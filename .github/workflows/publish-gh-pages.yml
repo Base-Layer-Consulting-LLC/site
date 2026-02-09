@@ -1,0 +1,46 @@
+---
+## Pipeline runs when a PR is completed, only if files in site/ were changed.
+#  Builds the site and publishes the static files to Github Pages.
+
+name: Publish Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - site/**
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Build site
+        working-directory: site
+        run: npm run build
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site/build
+          publish_branch: gh-pages
+          force_orphan: true
