@@ -1,5 +1,5 @@
 {
-    "name": "bl-repo-dev",
+    "name": "baselayer-devcontainer",
     "build": {
         "dockerfile": "dev/Dockerfile",
         "context": "..",
@@ -11,7 +11,6 @@
     "mounts": [
         "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
         "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind",
-        "source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind",
         "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind"
     ],
     "customizations": {
