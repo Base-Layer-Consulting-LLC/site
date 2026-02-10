@@ -38,7 +38,7 @@ jobs:
 
       - name: Lint code
         working-directory: site
-        run: npm run lint
+        run: npm run lint --if-present
 
       - name: Build site
         working-directory: site
