@@ -48,7 +48,7 @@
   <StackedHero
     title={PUBLIC_COMPANY}
     subtitle="Core infrastructure and DevOps consulting for your business."
-    backgroundImage="/img/hero-network-points.jpg"
+    backgroundImage="img/hero-network-points.jpg"
     overlayOpacity={0.4}
     heightClass="h-[75vh] md:h-[40vh]"
     titleSizeClass="text-3xl sm:text-4xl md:text-5xl lg:text-7xl"
