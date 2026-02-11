@@ -56,6 +56,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Add CNAME for GitHub Pages
+        run: echo "${{ vars.CNAME_DOMAIN }}" > site/build/CNAME
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
