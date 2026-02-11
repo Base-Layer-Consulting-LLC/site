@@ -1,0 +1,1 @@
+export const env={"PUBLIC_COMPANY":"Base Layer Consulting","PUBLIC_RESPONSE_TIME":"3-5 business days","PUBLIC_EMAIL":"jack@base-layer.llc"}
