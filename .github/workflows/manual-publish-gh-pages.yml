@@ -36,6 +36,26 @@ jobs:
           PUBLIC_EMAIL: ${{ vars.PUBLIC_EMAIL }}
           PUBLIC_RESPONSE_TIME: ${{ vars.PUBLIC_RESPONSE_TIME }}
 
+      - name: Set release tag (UTC datetime)
+        id: release_tag
+        run: echo "TAG=release-$(date -u +%Y%m%d-%H%M%S)" >> $GITHUB_OUTPUT
+
+      - name: Zip built site
+        run: |
+          cd site/build
+          zip -r ../../${{ steps.release_tag.outputs.TAG }}.zip .
+
+      - name: Create GitHub Release with asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.release_tag.outputs.TAG }}
+          name: "Landing page ${{ steps.release_tag.outputs.TAG }}"
+          body: "Manual release for GitHub Pages publish."
+          files: |
+            ${{ steps.release_tag.outputs.TAG }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
