@@ -8,6 +8,7 @@
   */
   themes: all;
 }
+@import "@animxyz/core";
 
 /* Base typography */
 @layer base {

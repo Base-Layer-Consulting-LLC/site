@@ -29,6 +29,7 @@
 		"vite-plugin-html": "^3.2.2"
 	},
 	"dependencies": {
+		"@animxyz/core": "^0.6.6",
 		"lucide-svelte": "^0.563.0"
 	},
 	"overrides": {

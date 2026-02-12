@@ -43,7 +43,7 @@
   ];
 </script>
 
-<div class="py-6">
+<div class="py-6 xyz-in" xyz="fade origin-center small stagger">
   <!-- Hero -->
   <StackedHero
     title={PUBLIC_COMPANY}
@@ -60,7 +60,10 @@
 </div>
 
 <!-- About -->
-<section class="bg-base-100 px-6 py-16 md:py-24">
+<section
+  class="bg-base-100 px-6 py-16 md:py-24 xyz-in"
+  xyz="fade origin-center small stagger"
+>
   <div class="max-w-4xl mx-auto text-center space-y-6">
     <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">About</h1>
     <p class="text-base sm:text-lg md:text-lg lg:text-xl leading-relaxed">
@@ -73,7 +76,10 @@
 </section>
 
 <!-- Services -->
-<section class="bg-base-200 px-6 py-16 md:py-24">
+<section
+  class="bg-base-200 px-6 py-16 md:py-24 xyz-in"
+  xyz="fade origin-center small stagger"
+>
   <div class="max-w-6xl mx-auto">
     <h2
       class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12"
